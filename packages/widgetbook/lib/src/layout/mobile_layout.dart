@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+import '../../widgetbook.dart';
 import '../settings/settings.dart';
 import 'base_layout.dart';
 
@@ -23,15 +24,12 @@ class MobileLayout extends StatelessWidget implements BaseLayout {
 
   @override
   Widget build(BuildContext context) {
+    final state = WidgetbookState.of(context);
+
+
     return Scaffold(
-      body: SafeArea(
-        bottom: state.useSafeBoundaries,
-        top: state.useSafeBoundaries,
-        right: state.useSafeBoundaries  ,
-        left: state.useSafeBoundaries,
-        
-        child: workbench,
-      ),
+      body: workbench,
+      resizeToAvoidBottomInset: state.useSafeBoundaries,
       bottomNavigationBar: BottomNavigationBar(
         items: [
           const BottomNavigationBarItem(

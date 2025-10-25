@@ -29,6 +29,7 @@ class Workbench extends StatelessWidget {
     return Scaffold(
       // Some addons require a Scaffold to work properly.
       body: _buildBody(state, theme, context),
+      resizeToAvoidBottomInset: state.useSafeBoundaries,
     );
   }
 

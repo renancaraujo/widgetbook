@@ -77,6 +77,7 @@ class WidgetbookState extends ChangeNotifier {
     this.home = const DefaultHomePage(),
     this.panels = null,
     this.header,
+    this.useSafeBoundaries = true,
     this.enableLeafComponents = true,
   }) {
     this.knobs = KnobsRegistry(
@@ -139,6 +140,12 @@ class WidgetbookState extends ChangeNotifier {
   /// An optional widget to display at the top of the navigation panel.
   /// This can be used for branding or additional information.
   final Widget? header;
+
+  /// Whether to wrap use cases with [SafeBoundaries].
+  ///
+  /// [SafeBoundaries] is needed for widgets that depend on [MediaQuery],
+  /// for example: widgets from `flutter_screenutil` package.
+  final bool useSafeBoundaries;
 
   /// Whether leaf components are enabled in the navigation tree.
   /// By default, this is set to true.

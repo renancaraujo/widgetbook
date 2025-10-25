@@ -33,6 +33,7 @@ class Widgetbook extends StatefulWidget {
     this.themeMode,
     this.home = const DefaultHomePage(),
     this.header,
+    this.useSafeBoundaries = true,
     this.scrollBehavior,
     this.enableLeafComponents = true,
   });
@@ -50,6 +51,7 @@ class Widgetbook extends StatefulWidget {
     this.themeMode,
     this.home = const DefaultHomePage(),
     this.header,
+    this.useSafeBoundaries = true,
     this.scrollBehavior,
     this.enableLeafComponents = true,
   });
@@ -67,6 +69,7 @@ class Widgetbook extends StatefulWidget {
     this.themeMode,
     this.home = const DefaultHomePage(),
     this.header,
+    this.useSafeBoundaries = true,
     this.scrollBehavior,
     this.enableLeafComponents = true,
   });
@@ -120,6 +123,14 @@ class Widgetbook extends StatefulWidget {
   /// This can be used for branding or additional information.
   final Widget? header;
 
+  /// Whether to wrap use cases with [SafeBoundaries].
+  ///
+  /// [SafeBoundaries] is needed for widgets that depend on [MediaQuery],
+  /// for example: widgets from `flutter_screenutil` package.
+  ///
+  /// Defaults to `true`.
+  final bool useSafeBoundaries;
+
   /// The [ScrollBehavior] to be applied to the Widgetbook application itself.
   ///
   /// This allows users to override the behavior of scrolling on both desktop
@@ -152,6 +163,7 @@ class _WidgetbookState extends State<Widgetbook> {
       header: widget.header,
       addons: widget.addons,
       integrations: widget.integrations,
+      useSafeBoundaries: widget.useSafeBoundaries,
       enableLeafComponents: widget.enableLeafComponents,
       root: WidgetbookRoot(
         children: widget.directories,

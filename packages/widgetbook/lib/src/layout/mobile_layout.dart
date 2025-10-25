@@ -25,6 +25,11 @@ class MobileLayout extends StatelessWidget implements BaseLayout {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        bottom: state.useSafeBoundaries,
+        top: state.useSafeBoundaries,
+        right: state.useSafeBoundaries  ,
+        left: state.useSafeBoundaries,
+        
         child: workbench,
       ),
       bottomNavigationBar: BottomNavigationBar(
